@@ -11,8 +11,8 @@ node {
     stage 'checkout'
     checkout scm
 
-    stage 'link gulp locally'
-    sh "npm link gulp"
+#    stage 'link gulp locally'
+#    sh "npm link gulp"
 
     stage 'npm install'
     sh "npm install"
