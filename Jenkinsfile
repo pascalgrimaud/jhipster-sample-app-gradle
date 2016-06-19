@@ -14,6 +14,9 @@ node {
     stage 'link gulp locally'
     sh "npm link gulp"
 
+    stage 'npm install'
+    sh "npm install"
+
     stage 'clean'
     sh "./gradlew clean"
 
