@@ -2,9 +2,6 @@ node {
     def nodeHome = tool name: 'node-4.4.5', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
     env.PATH = "${nodeHome}/bin:${env.PATH}"
 
-    stage 'install bower gulp-cli'
-    sh 'npm install -g bower gulp-cli'
-
     stage 'check environment'
     sh "node -v"
     sh "npm -v"
@@ -13,6 +10,9 @@ node {
 
     stage 'checkout'
     checkout scm
+
+    stage 'link gulp locally'
+    sh "npm link gulp"
 
     stage 'clean'
     sh "./gradlew clean"
