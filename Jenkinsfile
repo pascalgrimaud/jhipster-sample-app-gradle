@@ -1,4 +1,10 @@
 node {
+    def nodeHome = tool name: 'node-4.4.5', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
+    env.PATH = "${nodeHome}/bin:${env.PATH}"
+    stage 'install npm gulp bower'
+    sh "npm install -g npm"
+    sh "npm install -g bower gulp-cli"
+
     stage 'checkout'
     checkout scm
 
